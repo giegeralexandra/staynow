@@ -2,6 +2,6 @@
 
 export default function rentalReducer(state = {rentals: []}, action){
 
-    return state
+    return action.payload
 
 }
