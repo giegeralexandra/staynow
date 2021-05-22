@@ -1,11 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {createStore, applyMiddleware, compose} from 'redux';
+import thunk from 'redux-thunk';
+import {Provider} from 'react-redux';
+
 import App from './App';
 
+//compose combines diff middlewares into one 
+//store is where you are storing your data locally
+//reducers sending action object and it takes it in and deciding what to update about our current store and reducer will return a new version 
+const composeEnhancers = ((window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose)
+let reducer = ''
+
+let store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
+
 ReactDOM.render(
-  <React.StrictMode>
+  //Provider allows store global to all other containers we create, any component in provider will have access to store we pass in provider
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  
+  </Provider>
+  ,
   document.getElementById('root')
 );
 
