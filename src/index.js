@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 import App from './App';
 import rentalReducer from './reducers/rentalReducer'
-
+import {BrowserRouter as Router} from 'react-router-dom'
 
 //compose combines diff middlewares into one 
 //store is where you are storing your data locally
@@ -17,7 +17,9 @@ let store = createStore(rentalReducer, composeEnhancers(applyMiddleware(thunk)))
 ReactDOM.render(
   //Provider allows store global to all other containers we create, any component in provider will have access to store we pass in provider
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>  
   </Provider>
   ,
   document.getElementById('root')
