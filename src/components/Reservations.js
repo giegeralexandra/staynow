@@ -1,10 +1,11 @@
 import React from 'react'
 
-const Reservations = ({reservations}) =>{
+const Reservations = (props) =>{
 
     return (
         <div>
-            {reservations.map(reservation => <li key={reservation.id}>{reservation.checkin}</li>)} 
+            Reservations
+            {/* {reservations.map(reservation => <li key={reservation.id}>{reservation.checkin}</li>)}  */}
         </div>
     )
 }
