@@ -1,11 +1,14 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {addRental} from '../actions/addRental'
+
 
 class RentalInput extends React.Component {
     state= {
         name: '', 
         description: '', 
         price: '', 
-        type: '', 
+        rental_type: '', 
         address: '' 
     }
 
@@ -16,8 +19,17 @@ class RentalInput extends React.Component {
         })
     }
 
-    onSubmit = () => {
-        
+    onSubmit = (event) => {
+        event.preventDefault();
+        this.props.addRental(this.state)
+        this.setState({
+            name: '', 
+            description: '', 
+            price: '', 
+            rental_type: '', 
+            address: '' 
+
+        })
     }
 
     render(){
@@ -39,6 +51,9 @@ class RentalInput extends React.Component {
                     <label>Rental Address: </label>
                     <input type="text" placeholder="Address" name="address" value={this.state.address} onChange={this.handleChange}/><br/>
 
+                    <label>Rental Owner: </label>
+                    <input type="text" placeholder="Owner" name="owner_id" value={this.state.owner_id} onChange={this.handleChange}/><br/>
+
                     <input type="submit"/><br/><br/>
                 </form>
             </div>
@@ -46,4 +61,4 @@ class RentalInput extends React.Component {
     }
 }
 
-export default RentalInput
+export default connect(null, {addRental})(RentalInput)

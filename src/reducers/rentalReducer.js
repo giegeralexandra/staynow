@@ -5,6 +5,8 @@ export default function rentalReducer(state = {rentals: []}, action){
     switch (action.type) {
         case 'FETCH_RENTALS':
             return {rentals: action.payload}
+        case 'ADD_ACCOUNT':
+            return {...state, rentals: [...state.rentals, action.payload]}
         default:
             return state
     }
