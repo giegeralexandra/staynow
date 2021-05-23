@@ -1,10 +1,13 @@
 import React from 'react'
+import Rental from './Rental'
 
-const Rentals = ({rentals}) =>{
+
+const Rentals = (props) =>{
 
     return (
         <div>
-            {rentals.map(rental => <li key={rental.id}>{rental.name} - {rental.address} - {rental.description} - {rental.price} - {rental.owner.name}</li>)} 
+            {props.rentals.map(rental => 
+            <div key={rental.id}><Rental rental={rental}/></div>)} 
         </div>
     )
 }
