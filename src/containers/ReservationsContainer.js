@@ -15,7 +15,8 @@ class ReservationsContainer extends React.Component {
         return(
             <div>
                 <ReservationInput/>
-                <Reservations reservations={this.props.reservations}/>
+                {/* <Reservations /> */}
+                {/* <Reservations reservations={this.props.reservations}/> */}
             </div>
         )
     }
