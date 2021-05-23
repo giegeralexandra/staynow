@@ -1,10 +1,12 @@
 import React from 'react'; 
-import {connect} from 'react-redux'
+// import {connect} from 'react-redux'
 //gives access to specifically connect incorporate reatct redux into the application
 // import {fetchRentals} from './actions/fetchRentals'
 //curly brackets because we did not export default
 import RentalsContainer from './containers/RentalsContainer'
-import ReservationsContainer from './containers/ReservationsContainer'
+// import ReservationsContainer from './containers/ReservationsContainer'
+import UsersContainer from './containers/UsersContainer'
+
 class App extends React.Component {
   
   // componentDidMount() {
@@ -20,6 +22,7 @@ class App extends React.Component {
   return (
     <div className = "App">
       <RentalsContainer/>
+      <UsersContainer/>
       {/* <ReservationsContainer/> */}
     </div>
     

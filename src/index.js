@@ -6,13 +6,21 @@ import {Provider} from 'react-redux';
 import App from './App';
 import rentalReducer from './reducers/rentalReducer'
 import {BrowserRouter as Router} from 'react-router-dom'
-
+import currentUser from './reducers/currentUser'
+import userReducer from './reducers/userReducer'
+import {combineReducers} from 'redux'
 //compose combines diff middlewares into one 
 //store is where you are storing your data locally
 //reducers sending action object and it takes it in and deciding what to update about our current store and reducer will return a new version 
+
+//just displaying different syntax options
+const reducer = combineReducers({
+  users: userReducer,
+  currentUser: currentUser
+})
 const composeEnhancers = ((window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose)
 
-let store = createStore(rentalReducer, composeEnhancers(applyMiddleware(thunk)))
+let store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
   //Provider allows store global to all other containers we create, any component in provider will have access to store we pass in provider

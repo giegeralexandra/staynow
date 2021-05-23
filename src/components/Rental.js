@@ -4,7 +4,7 @@ import ReservationsContainer from '../containers/ReservationsContainer'
 const Rental = (props) => {
 
     let rental = props.rentals[props.match.params.id - 1]
-
+// let rental = props.accounts.filter(rental => rental.id == props.mathch.params.id)[0]
     return(
         <div>
             {/* {rental ? null : <Redirect to='/rentals'/>} */}
