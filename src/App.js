@@ -1,23 +1,25 @@
 import React from 'react'; 
 import {connect} from 'react-redux'
 //gives access to specifically connect incorporate reatct redux into the application
-import {fetchRentals} from './actions/fetchRentals'
+// import {fetchRentals} from './actions/fetchRentals'
 //curly brackets because we did not export default
+import RentalsContainer from './containers/RentalsContainer'
+
 class App extends React.Component {
   
-  componentDidMount() {
-    this.props.fetchRentals({type: 'FETCH_ACCOUNTS', payload: {name: 'Happy Home'}})
-    // fetch('http://localhost:3000/api/v1/rentals')
-    // .then(res => res.json())
-    // .then(rentals => console.log(rentals))
-  }
+  // componentDidMount() {
+  //   this.props.fetchRentals({type: 'FETCH_ACCOUNTS', payload: {name: 'Happy Home'}})
+  //   // fetch('http://localhost:3000/api/v1/rentals')
+  //   // .then(res => res.json())
+  //   // .then(rentals => console.log(rentals))
+  // }
   
   
   render(){
 
   return (
     <div className = "App">
-      <RentalContainer/>
+      <RentalsContainer/>
     </div>
     
   )
@@ -40,7 +42,7 @@ class App extends React.Component {
 
 // export default connect(mapStateToProps, {fetchRentals})(App);
 
-export default connect(null, {fetchRentals})(App);
+export default App;
 
 //this connect is automatically calling dispatch for us on the return value of fetchRentals
 //store.dispatch({type: 'FETCH_ACCOUNTS', payload: {name: 'Happy Home'})

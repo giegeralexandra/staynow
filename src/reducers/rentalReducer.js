@@ -2,6 +2,12 @@
 
 export default function rentalReducer(state = {rentals: []}, action){
 
-    return action.payload
+    switch (action.type) {
+        case 'FETCH_RENTALS':
+            return {rentals: action.payload}
+        default:
+            return state
+    }
+
 
 }
