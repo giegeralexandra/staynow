@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 // import {fetchRentals} from './actions/fetchRentals'
 //curly brackets because we did not export default
 import RentalsContainer from './containers/RentalsContainer'
-
+import ReservationsContainer from './containers/ReservationsContainer'
 class App extends React.Component {
   
   // componentDidMount() {
