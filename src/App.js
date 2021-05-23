@@ -6,6 +6,7 @@ import React from 'react';
 import RentalsContainer from './containers/RentalsContainer'
 // import ReservationsContainer from './containers/ReservationsContainer'
 import UsersContainer from './containers/UsersContainer'
+import Login from './components/Login'
 
 class App extends React.Component {
   
@@ -23,7 +24,7 @@ class App extends React.Component {
     <div className = "App">
       <RentalsContainer/>
       <UsersContainer/>
-      {/* <ReservationsContainer/> */}
+      <Login/>
     </div>
     
   )

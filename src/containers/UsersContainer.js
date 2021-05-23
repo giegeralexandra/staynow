@@ -1,7 +1,7 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import Reservations from '../components/Reservations'
-import {fetchUsers} from '../actions/fetchUsers'
+// import {connect} from 'react-redux'
+// import Reservations from '../components/Reservations'
+// import {fetchUsers} from '../actions/fetchUsers'
 
 class UsersContainer extends React.Component {
  //why should it be component? because it has functions and component did mount

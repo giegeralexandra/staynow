@@ -1,9 +1,9 @@
 import React from 'react'
-import {connect} from 'react-redux'
+// import {connect} from 'react-redux'
 
 import Reservations from '../components/Reservations'
 import ReservationInput from '../components/ReservationInput'
-import {fetchReservations} from '../actions/fetchReservations'
+// import {fetchReservations} from '../actions/fetchReservations'
 
 class ReservationsContainer extends React.Component {
  //why should it be component? because it has functions and component did mount
@@ -24,11 +24,11 @@ class ReservationsContainer extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        reservations: state.reservations
-    }
-}
+// const mapStateToProps = state => {
+//     return {
+//         reservations: state.reservations
+//     }
+// }
 
 export default (ReservationsContainer)
 

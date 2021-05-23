@@ -4,11 +4,12 @@ import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 import App from './App';
-import rentalReducer from './reducers/rentalReducer'
+// import rentalReducer from './reducers/rentalReducer'
 import {BrowserRouter as Router} from 'react-router-dom'
 import currentUser from './reducers/currentUser'
 import userReducer from './reducers/userReducer'
 import {combineReducers} from 'redux'
+import loginFormReducer from './reducers/loginFormReducer'
 //compose combines diff middlewares into one 
 //store is where you are storing your data locally
 //reducers sending action object and it takes it in and deciding what to update about our current store and reducer will return a new version 
@@ -16,8 +17,10 @@ import {combineReducers} from 'redux'
 //just displaying different syntax options
 const reducer = combineReducers({
   users: userReducer,
-  currentUser: currentUser
+  currentUser: currentUser,
+  login: loginFormReducer
 })
+
 const composeEnhancers = ((window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose)
 
 let store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
