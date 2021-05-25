@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {updateLoginForm} from '../actions/updateLoginForm'
-import {login}  from '../actions/setCurrentUser'
+import {userLogin} from '../actions/setCurrentUser'
 
 const Login = (props) => {
 
@@ -16,7 +16,7 @@ const Login = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        login(props.loginForm)
+        props.userLogin(props.loginForm)
         // this.props.setState({
         //     email: "", 
         //     password: ""
@@ -37,7 +37,12 @@ const mapStateToProps = state => {
         loginForm: state.login
     }
 } 
-// gives us an argument coming to this component that looks like this: {email: "", password:""}, gives state in form of props
 
+const mapDispatchToProps = () => {
+    return {
+        updateLoginForm: updateLoginForm,
+        userLogin: userLogin
+    }
+  }
 
-export default connect(mapStateToProps, {updateLoginForm, login})(Login)
+export default connect(mapStateToProps, {userLogin, updateLoginForm})(Login)

@@ -7,25 +7,32 @@ import RentalsContainer from './containers/RentalsContainer'
 // import ReservationsContainer from './containers/ReservationsContainer'
 import UsersContainer from './containers/UsersContainer'
 import Login from './components/Login'
+import { connect } from 'react-redux'
+import {getCurrentUser} from "./actions/setCurrentUser"
+import Logout from './components/Logout'
 
 class App extends React.Component {
   
-  // componentDidMount() {
-  //   this.props.fetchRentals({type: 'FETCH_ACCOUNTS', payload: {name: 'Happy Home'}})
-  //   // fetch('http://localhost:3000/api/v1/rentals')
-  //   // .then(res => res.json())
-  //   // .then(rentals => console.log(rentals))
-  // }
+  componentDidMount() {
+    this.props.getCurrentUser()
+    
+
+    // this.props.fetchRentals({type: 'FETCH_ACCOUNTS', payload: {name: 'Happy Home'}})
+    // fetch('http://localhost:3000/api/v1/rentals')
+    // .then(res => res.json())
+    // .then(rentals => console.log(rentals))
+  }
   
   
   render(){
 
   return (
-    <div className = "App">
+    this.props.currentUser ? <Logout/> : 
+    (<div className = "App">
       <RentalsContainer/>
       <UsersContainer/>
       <Login/>
-    </div>
+   </div>)
     
   )
   }
@@ -47,7 +54,12 @@ class App extends React.Component {
 
 // export default connect(mapStateToProps, {fetchRentals})(App);
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    currentUser: state.currentUser
+  }
+}
+export default connect(mapStateToProps, {getCurrentUser})(App);
 
 //this connect is automatically calling dispatch for us on the return value of fetchRentals
 //store.dispatch({type: 'FETCH_ACCOUNTS', payload: {name: 'Happy Home'})
