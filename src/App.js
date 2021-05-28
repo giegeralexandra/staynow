@@ -10,12 +10,15 @@ import Login from './components/Login'
 import { connect } from 'react-redux'
 import {getCurrentUser} from "./actions/setCurrentUser"
 import Logout from './components/Logout'
+import {fetchRentals} from './actions/fetchRentals'
+import TripsContainer from './containers/TripsContainer'
 
 class App extends React.Component {
   
   componentDidMount() {
+    // this.props.fetchRentals()
+
     this.props.getCurrentUser()
-    
 
     // this.props.fetchRentals({type: 'FETCH_ACCOUNTS', payload: {name: 'Happy Home'}})
     // fetch('http://localhost:3000/api/v1/rentals')
@@ -27,12 +30,21 @@ class App extends React.Component {
   render(){
 
   return (
-    this.props.currentUser ? <Logout/> : 
-    (<div className = "App">
+    this.props.currentUser ? (
+      <div className = "App">
+      <RentalsContainer/>
+      <UsersContainer/>
+      <TripsContainer/>
+      <Logout/>
+      </div>
+    ) : 
+    (
+    <div className = "App">
       <RentalsContainer/>
       <UsersContainer/>
       <Login/>
-   </div>)
+    </div>
+    )
     
   )
   }

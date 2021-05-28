@@ -1,6 +1,7 @@
 import React from 'react'
 // import {Redirect} from 'react-router-dom'
 import ReservationsContainer from '../containers/ReservationsContainer'
+
 const Rental = (props) => {
 
     let rental = props.rentals[props.match.params.id - 1]
