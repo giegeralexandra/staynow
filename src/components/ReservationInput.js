@@ -3,6 +3,9 @@ import {connect} from 'react-redux'
 import {addReservation} from '../actions/addReservation'
 import {Route, Link, Redirect, withRouter} from 'react-router-dom'
 import {compose} from 'redux'
+import { fetchReservations } from '../actions/fetchReservations'
+import Booked from './Booked'
+
 class ReservationInput extends React.Component {
     
     state= {
@@ -33,9 +36,8 @@ class ReservationInput extends React.Component {
             rental_id: '', 
             guest_id: '', 
             price: ''  
-
         })
-        // this.props.history.push('/booked');
+        this.props.history.push('/booked')
     }
 
     render(){
@@ -60,7 +62,8 @@ class ReservationInput extends React.Component {
 const mapStateToProps = (state) => {
     console.log(state)
     return{
-        currentUser: state.currentUser
+        currentUser: state.currentUser,
+        reservations: state.reservations
     }
 }
 

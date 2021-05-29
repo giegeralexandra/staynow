@@ -11,7 +11,7 @@ const Reservation = (props) =>{
         <h1 className="text-3xl">{rental.name}</h1>
         <p>Checkin: {reservation.checkin}</p>
         <p>Checkout: {reservation.checkout}</p> 
-        <p>Total: {reservation.total_price}</p>
+        <p>Total: ${reservation.total_price}</p>
         </div>
         : null
     

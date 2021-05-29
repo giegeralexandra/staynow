@@ -11,19 +11,23 @@ import userReducer from './reducers/userReducer'
 import {combineReducers} from 'redux'
 import loginFormReducer from './reducers/loginFormReducer'
 import rentalReducer from './reducers/rentalReducer'
-import tripsReducer from './reducers/tripReducer'
+// import tripsReducer from './reducers/tripReducer'
 import './index.css'
+import tripReducer from './reducers/tripReducer'
+import reservationReducer from './reducers/reservationReducer'
 //compose combines diff middlewares into one 
 //store is where you are storing your data locally
 //reducers sending action object and it takes it in and deciding what to update about our current store and reducer will return a new version 
-
+import signupFormReducer from './reducers/signupFormReducer'
 //just displaying different syntax options
 const reducer = combineReducers({
   users: userReducer,
   currentUser: currentUser,
   login: loginFormReducer, 
   rentals: rentalReducer, 
-  trips: tripsReducer
+  trips: tripReducer,
+  reservations: reservationReducer,
+  signupForm: signupFormReducer
 })
 
 const composeEnhancers = ((window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose)

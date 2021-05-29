@@ -10,7 +10,9 @@ import {Route, Switch, Link} from 'react-router-dom'
 class TripsContainer extends React.Component {
  //why should it be component? because it has functions and component did mount
  
-
+    componentDidMount() {
+        this.props.fetchTrips()
+    }
     
 
     render(){
@@ -18,8 +20,8 @@ class TripsContainer extends React.Component {
         return(
             <div>
                 <Switch>
-                    <Route path='/trips/:id' render={(routerProps) => <Trip {...routerProps} trips={this.props.trips} />} />
-                    <Route path='/trips' render={(routerProps) => <Trips {...routerProps} trips={this.props.trips} />} />
+                    <Route exact path='/trips/:id' render={(routerProps) => <Trip {...routerProps} trips={this.props.trips} />} />
+                    <Route exact path='/trips' render={(routerProps) => <Trips {...routerProps} trips={this.props.trips} />} />
                 </Switch>
             </div>
         )
@@ -29,8 +31,8 @@ class TripsContainer extends React.Component {
 const mapStateToProps = state => {
     console.log(state)
     return {
-        trips: state.currentUser.trips
+        trips: state.trips
     }
 }
 
-export default connect(mapStateToProps)(TripsContainer)
+export default connect(mapStateToProps, {fetchTrips})(TripsContainer)

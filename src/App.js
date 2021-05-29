@@ -5,16 +5,16 @@ import React from 'react';
 //curly brackets because we did not export default
 import RentalsContainer from './containers/RentalsContainer'
 // import ReservationsContainer from './containers/ReservationsContainer'
-import Login from './components/Login'
+// import Login from './components/Login'
 import { connect } from 'react-redux'
 import {getCurrentUser} from "./actions/setCurrentUser"
-import Logout from './components/Logout'
+// import Logout from './components/Logout'
 import {fetchRentals} from './actions/fetchRentals'
 import TripsContainer from './containers/TripsContainer'
 import ReservationsContainer from './containers/ReservationsContainer'
 import NavBar from './components/NavBar.js'
 import Home from './components/Home'
-import Signup from './components/Signup'
+// import Signup from './components/Signup'
 import "tailwindcss/tailwind.css"
 
 class App extends React.Component {

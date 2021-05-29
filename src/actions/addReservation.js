@@ -1,4 +1,7 @@
-export const addReservation = (data) => {
+// import {withRouter} from 'react-router-dom'
+// import {fetchReservations} from './fetchReservations'
+
+export const addReservation = (data, history) => {
     console.log('inside add reservation')
     return (dispatch) => {
         fetch('http://localhost:3000/api/v1/reservations', {
@@ -7,6 +10,7 @@ export const addReservation = (data) => {
                 'Accept': 'application/json'
             },
             method: 'POST', 
+            credentials: 'include',
             body: JSON.stringify(data)
         })
         .then(res => res.json())
@@ -16,10 +20,13 @@ export const addReservation = (data) => {
                 console.log(reservation)
                 alert(reservation.error)
             } else {
+                // history.push(`/reservations/${reservation.id}`)
                 dispatch({type: 'ADD_RESERVATION', payload: reservation})
+                // dispatch(fetchReservations())
             }
         })
         .catch(console.log)
     
     }
 }
+

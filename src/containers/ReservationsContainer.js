@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import ReservationInput from '../components/ReservationInput'
 import {fetchReservations} from '../actions/fetchReservations'
 import UserReservations from '../components/UserReservations'
 import {Route, Switch, Link} from 'react-router-dom'
@@ -10,9 +9,9 @@ import Booked from '../components/Booked'
 class ReservationsContainer extends React.Component {
  //why should it be component? because it has functions and component did mount
  
-    // componentDidMount(){
-    //     this.props.fetchReservations()
-    // }
+    componentDidMount(){
+        this.props.fetchReservations()
+    }
 
     render(){
 
@@ -36,5 +35,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(ReservationsContainer)
+export default connect(mapStateToProps, {fetchReservations})(ReservationsContainer)
 

@@ -4,7 +4,7 @@ export default function reservationReducer(state = {reservations: []}, action){
         case 'FETCH_RESERVATIONS':
             return action.payload
         case 'ADD_RESERVATION':
-            return {...state, reservations: [...state.reservations, action.payload]}
+            return state.concat(action.reservation)
         default:
             return state
     }

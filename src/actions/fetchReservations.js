@@ -1,3 +1,10 @@
+export const setReservations = reservations => {
+    return {
+        type: "SET_RESERVATIONS",
+        reservations
+    }
+}
+
 export function fetchReservations() {
     return (dispatch) => {
         console.log('inside fetch reservations')
