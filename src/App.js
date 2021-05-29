@@ -14,6 +14,7 @@ import {fetchRentals} from './actions/fetchRentals'
 import TripsContainer from './containers/TripsContainer'
 import ReservationsContainer from './containers/ReservationsContainer'
 import NavBar from './components/NavBar.js'
+import Home from './components/Home'
 
 class App extends React.Component {
   
@@ -42,7 +43,9 @@ class App extends React.Component {
     ) : 
     (
     <div className = "App">
+      <Home/>
       <Login/>
+      <Signup/>
     </div>
     )
     
@@ -69,10 +72,12 @@ class App extends React.Component {
 const mapStateToProps = state => {
   console.log(state)
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    loggedIn: !!state.currentUser
   }
 }
 export default connect(mapStateToProps, {getCurrentUser, fetchRentals})(App);
 
 //this connect is automatically calling dispatch for us on the return value of fetchRentals
 //store.dispatch({type: 'FETCH_ACCOUNTS', payload: {name: 'Happy Home'})
+

@@ -29,7 +29,6 @@ class TripsContainer extends React.Component {
 const mapStateToProps = state => {
     console.log(state)
     return {
-        
         trips: state.currentUser.trips
     }
 }

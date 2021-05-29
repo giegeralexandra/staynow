@@ -7,8 +7,8 @@ return (
         <NavLink exact to='/reservations'>My Reservations    </NavLink>
         <NavLink exact to='/trips'>My Trips   </NavLink>
         <NavLink exact to='/logout'>Logout   </NavLink>
-
     </div>
+    
 )
 }
 
