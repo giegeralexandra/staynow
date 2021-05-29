@@ -74,7 +74,6 @@ const mapStateToProps = state => {
   console.log(state)
   return {
     currentUser: state.currentUser,
-    loggedIn: !!state.currentUser
   }
 }
 export default connect(mapStateToProps, {getCurrentUser, fetchRentals})(App);

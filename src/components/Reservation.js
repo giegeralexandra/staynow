@@ -7,6 +7,7 @@ const Reservation = (props) =>{
     
     return (
         <div>
+            <h1>{reservation.rental.name}</h1>
              { reservation ? (reservation.checkin) : null }
         </div>
     )
