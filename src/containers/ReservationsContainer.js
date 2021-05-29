@@ -10,9 +10,9 @@ import Booked from '../components/Booked'
 class ReservationsContainer extends React.Component {
  //why should it be component? because it has functions and component did mount
  
-    componentDidMount(){
-        this.props.fetchReservations()
-    }
+    // componentDidMount(){
+    //     this.props.fetchReservations()
+    // }
 
     render(){
 
@@ -20,10 +20,9 @@ class ReservationsContainer extends React.Component {
             <div>
             <Switch> 
                 {/* switch chooses first route that matches that path */}
-                <Route exact path='/reservations/new' component={ReservationInput} />
-                <Route exact path='/reservations/:id' render={(routerProps) => <Reservation {...routerProps} reservations={this.props.userReservations} rentals={this.props.rentals} />} />
-                <Route path='/reservations' render={(routerProps) => <UserReservations {...routerProps} reservations={this.props.userReservations} />} />
-                <Route path='/booked' render={(routerProps) => <Booked {...routerProps} reservations={this.props.userReservations} />} />
+                <Route exact path='/reservations/:id' render={(routerProps) => <Reservation {...routerProps} reservations={this.props.reservations} rentals={this.props.rentals} />} />
+                <Route exact path='/reservations' render={(routerProps) => <UserReservations {...routerProps} reservations={this.props.reservations} />} />
+                <Route path='/booked' render={(routerProps) => <Booked {...routerProps} reservations={this.props.reservations} />} />
             </Switch>
             </div>
         )}
@@ -33,10 +32,9 @@ const mapStateToProps = state => {
     console.log(state)
     return {
         reservations: state.reservations, 
-        userReservations: state.currentUser.reservations,
         rentals: state.rentals
     }
 }
 
-export default connect(mapStateToProps, {fetchReservations})(ReservationsContainer)
+export default connect(mapStateToProps)(ReservationsContainer)
 

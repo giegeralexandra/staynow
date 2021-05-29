@@ -1,5 +1,5 @@
 export default function currentUserReducer(state = null, action) {
-    console.log('inside reducer')
+    console.log('inside current user reducer')
     switch (action.type) {
         case 'SET_CURRENT_USER':
             return action.user

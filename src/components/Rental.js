@@ -1,9 +1,8 @@
 import React from 'react'
 // import {Redirect} from 'react-router-dom'
-import ReservationsContainer from '../containers/ReservationsContainer'
 import ReservationInput from './ReservationInput'
 import {connect} from 'react-redux'
-import {Route, Link, withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 
 const Rental = (props) => {
 

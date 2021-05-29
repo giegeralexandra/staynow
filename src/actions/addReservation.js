@@ -1,5 +1,5 @@
 export const addReservation = (data) => {
-
+    console.log('inside add reservation')
     return (dispatch) => {
         fetch('http://localhost:3000/api/v1/reservations', {
             headers: {
@@ -10,8 +10,15 @@ export const addReservation = (data) => {
             body: JSON.stringify(data)
         })
         .then(res => res.json())
-        .then(reservation => dispatch({type: 'ADD_RESERVATION', payload: reservation})
-        )
+        .then(reservation => {
+            if (reservation.error) {
+                console.log(reservation.error)
+                console.log(reservation)
+                alert(reservation.error)
+            } else {
+                dispatch({type: 'ADD_RESERVATION', payload: reservation})
+            }
+        })
         .catch(console.log)
     
     }

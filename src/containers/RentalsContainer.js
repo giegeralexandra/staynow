@@ -5,7 +5,6 @@ import {connect} from 'react-redux'
 import {Route, Switch, Link} from 'react-router-dom'
 import Rentals from '../components/Rentals'
 import Rental from '../components/Rental'
-import RentalInput from '../components/RentalInput'
 import {fetchRentals} from '../actions/fetchRentals'
 
 class RentalsContainer extends React.Component {

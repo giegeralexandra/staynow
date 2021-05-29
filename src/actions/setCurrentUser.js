@@ -1,4 +1,7 @@
 //sync action creators
+import {resetLoginForm} from './updateLoginForm'
+import {fetchReservations} from './fetchReservations'
+import {fetchTrips} from './fetchTrips'
 
 export const setCurrentUser =(user) => {
     console.log('inside fetch current users')
@@ -31,7 +34,7 @@ export function userLogin(credentials) {
             credentials: "include", 
             method: "POST",
             headers: {
-            "Content-Type": "application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(credentials)
         })
@@ -42,6 +45,9 @@ export function userLogin(credentials) {
             } else {
                 // console.log(user)
                 dispatch(setCurrentUser(user))
+                // dispatch(resetLoginForm())
+                dispatch(fetchReservations())
+                dispatch(fetchTrips())
                 // debugger
             }
         })

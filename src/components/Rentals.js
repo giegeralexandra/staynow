@@ -1,6 +1,5 @@
 import React from 'react'
 import {Route, Link} from 'react-router-dom'
-import Rental from './Rental'
 import {connect} from 'react-redux'
 
 const Rentals = (props) => {

@@ -5,7 +5,6 @@ import React from 'react';
 //curly brackets because we did not export default
 import RentalsContainer from './containers/RentalsContainer'
 // import ReservationsContainer from './containers/ReservationsContainer'
-import UsersContainer from './containers/UsersContainer'
 import Login from './components/Login'
 import { connect } from 'react-redux'
 import {getCurrentUser} from "./actions/setCurrentUser"
