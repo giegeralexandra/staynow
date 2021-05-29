@@ -2,7 +2,7 @@
 import {resetLoginForm} from './updateLoginForm'
 import {fetchReservations} from './fetchReservations'
 import {fetchTrips} from './fetchTrips'
-
+import {resetSignupForm} from './signupForm'
 
 export const setCurrentUser =(user) => {
     console.log('inside fetch current users')
@@ -97,3 +97,36 @@ export function logout(event) {
 
 
 
+//asych
+export function signup(credentials) {
+    console.log("credentials ARE", credentials)
+    // debugger
+    return (dispatch) => {
+        const userInfo = {
+            user: credentials
+        }
+        console.log('inside fetch post signup')
+        fetch('http://localhost:3000/api/v1/signup', {
+            credentials: "include", 
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userInfo)
+        })
+        .then(res => res.json())
+        .then(user => {
+            if (user.error) {
+                alert(user.error)
+            } else {
+                // console.log(user)
+                dispatch(setCurrentUser(user))
+                dispatch(resetSignupForm())
+                dispatch(fetchReservations())
+                dispatch(fetchTrips())
+                // debugger
+            }
+        })
+        .catch(console.log)
+        }
+}
