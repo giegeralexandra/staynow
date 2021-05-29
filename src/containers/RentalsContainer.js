@@ -37,6 +37,7 @@ class RentalsContainer extends React.Component {
                     <Route exact path='/rentals/new' component={RentalInput} />
                     <Route exact path='/rentals/:id' render={(routerProps) => <Rental {...routerProps} rentals={this.props.rentals} />} />
                     <Route path='/rentals' render={(routerProps) => <Rentals {...routerProps} rentals={this.props.rentals} />} />
+                    
                 </Switch>
             </div>
         )

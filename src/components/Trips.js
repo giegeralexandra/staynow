@@ -11,9 +11,9 @@ const Trips = (props) =>{
             Trip
             {props.trips.map(trip =>
                 <li key={trip.id}>
-                    <link to={`trips/${trip.id}`}>
+                    <Link to={`trips/${trip.id}`}>
                     {trip.checkin} - {trip.checkout}
-                    </link>
+                    </Link>
                 </li>
             )}
         </div>

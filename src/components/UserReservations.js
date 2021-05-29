@@ -11,9 +11,9 @@ const UserReservations = (props) =>{
             UserReservation
             {props.reservations.map(reservation =>
                 <li key={reservation.id}>
-                    <link to={`reservations/${reservation.id}`}>
-                    {reservation.checkin} - {reservation.checkout}
-                    </link>
+                    <Link to={`reservations/${reservation.id}`}>
+                    {reservation.checkin} - {reservation.checkout} - {reservation.id}
+                    </Link>
                 </li>
             )}
         </div>
