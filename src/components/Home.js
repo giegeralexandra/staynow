@@ -1,19 +1,17 @@
 import { render } from '@testing-library/react'
 import React from 'react'
 import {Link} from 'react-router-dom'
-
+import Login from './Login'
+import Signup from './Signup'
 const Home = () => {
     
     return(
     <div>
-        <Link to="/signup">
-            Sign up
-        </Link>
-        or 
-        <Link to="/login" className="text-red-700">
-            Login
-        </Link>
+        Welcome to StayNow! Please Login
+        <Login /><br/> 
+        <p><Signup/></p> 
     </div>
+    
     )
 }
 

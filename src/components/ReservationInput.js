@@ -1,15 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {addReservation} from '../actions/addReservation'
-import {Route, Link, Redirect} from 'react-router-dom'
-
+import {Route, Link, Redirect, withRouter} from 'react-router-dom'
+import {compose} from 'redux'
 class ReservationInput extends React.Component {
     
     state= {
         checkin: '', 
         checkout: '', 
-        rental_id: this.props.rental.id,
-        guest_id: this.props.currentUser.id, 
         price: '' 
     }
 
@@ -22,9 +20,12 @@ class ReservationInput extends React.Component {
     }
 
     onSubmit = (event) => {
-    
+        console.log(this.props)
+        // debugger
         event.preventDefault();
-        this.props.addReservation(this.state)
+        let reservation = {...this.state, rental_id: this.props.rental.id,
+            guest_id: this.props.rental.id,}
+        this.props.addReservation(reservation)
         
         this.setState({
             checkin: '', 
@@ -34,7 +35,7 @@ class ReservationInput extends React.Component {
             price: ''  
 
         })
-        return <Redirect to={`/reservations`} />
+        // this.props.history.push('/booked');
     }
 
     render(){
@@ -48,6 +49,7 @@ class ReservationInput extends React.Component {
                     <label>Reservation Checkout: </label>
                     <input type="date" placeholder="Checkout" name="checkout" value={this.state.checkout} onChange={this.handleChange}/><br/>
                     
+                    <br/>
                     <input type="submit" value="Add Reservation"/><br/><br/>
                 </form>
             </div>
@@ -62,4 +64,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {addReservation})(ReservationInput)
+export default withRouter(connect(mapStateToProps, {addReservation})(ReservationInput))

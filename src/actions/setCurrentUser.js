@@ -15,6 +15,12 @@ export const setCurrentUser =(user) => {
     }
 }
 
+export function clearCurrentUser() {
+    return {
+        type: "CLEAR_CURRENT_USER"
+    }
+}
+
 //asych
 export function userLogin(credentials) {
     console.log("credentials ARE", credentials)
@@ -65,11 +71,7 @@ export function getCurrentUser(){
     
 }
 
-export function clearCurrentUser() {
-    return {
-        type: "CLEAR_CURRENT_USER"
-    }
-}
+
 
 
 export function logout(event) {

@@ -12,6 +12,7 @@ export const addReservation = (data) => {
         .then(res => res.json())
         .then(reservation => dispatch({type: 'ADD_RESERVATION', payload: reservation})
         )
+        .catch(console.log)
     
     }
 }

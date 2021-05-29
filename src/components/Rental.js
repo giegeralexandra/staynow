@@ -3,22 +3,27 @@ import React from 'react'
 import ReservationsContainer from '../containers/ReservationsContainer'
 import ReservationInput from './ReservationInput'
 import {connect} from 'react-redux'
-import {Route, Link} from 'react-router-dom'
+import {Route, Link, withRouter} from 'react-router-dom'
+
 const Rental = (props) => {
 
     const rental = props.rentals[props.match.params.id-1]
 // let rental = props.accounts.filter(rental => rental.id == props.mathch.params.id)[0]
+    const rentalView = rental ?  
+    <div>
+    <h1 className="text-3xl">{rental.name}</h1>
+    <p>Description: {rental.description}</p>
+    <p>Rental Type: {rental.rental_type}</p>
+    <p>Price per night: ${rental.price}</p><br></br>
+</div> : null 
+
+    console.log(props)
     return(
-        console.log(rental),
-        <div>
-            {/* {rental ? null : <Redirect to='/rentals'/>} */}
-            <h1 className="text-3xl">{rental ? rental.name : null}</h1>
-            <p>Description: {rental ? rental.description : null}</p>
-            <p>Rental Type: { rental ? rental.rental_type : null}</p>
-            <p>Price per night: ${ rental ? rental.price : null}</p><br></br>
-            <ReservationInput rental={rental} />
+       
+       <div>
+           {rentalView}
+           <ReservationInput rental={rental} currentUser={props.currentUser}/>
         </div>
-        
     )
 
 }
@@ -26,8 +31,8 @@ const Rental = (props) => {
 const mapStateToProps = (state) => {
     console.log(state)
     return {
-        
+        currentUser: state.currentUser
     }
 }
 
-export default connect(mapStateToProps)(Rental) 
+export default connect(mapStateToProps)(Rental); withRouter(Rental)

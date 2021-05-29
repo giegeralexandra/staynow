@@ -6,7 +6,7 @@ import {fetchReservations} from '../actions/fetchReservations'
 import UserReservations from '../components/UserReservations'
 import {Route, Switch, Link} from 'react-router-dom'
 import Reservation from '../components/Reservation'
-
+import Booked from '../components/Booked'
 class ReservationsContainer extends React.Component {
  //why should it be component? because it has functions and component did mount
  
@@ -21,8 +21,9 @@ class ReservationsContainer extends React.Component {
             <Switch> 
                 {/* switch chooses first route that matches that path */}
                 <Route exact path='/reservations/new' component={ReservationInput} />
-                <Route exact path='/reservations/:id' render={(routerProps) => <Reservation {...routerProps} reservations={this.props.userReservations} />} />
+                <Route exact path='/reservations/:id' render={(routerProps) => <Reservation {...routerProps} reservations={this.props.userReservations} rentals={this.props.rentals} />} />
                 <Route path='/reservations' render={(routerProps) => <UserReservations {...routerProps} reservations={this.props.userReservations} />} />
+                <Route path='/booked' render={(routerProps) => <Booked {...routerProps} reservations={this.props.userReservations} />} />
             </Switch>
             </div>
         )}
@@ -32,7 +33,8 @@ const mapStateToProps = state => {
     console.log(state)
     return {
         reservations: state.reservations, 
-        userReservations: state.currentUser.reservations
+        userReservations: state.currentUser.reservations,
+        rentals: state.rentals
     }
 }
 

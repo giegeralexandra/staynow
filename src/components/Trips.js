@@ -3,8 +3,8 @@ import {Route, Link} from 'react-router-dom'
 
 const Trips = (props) =>{
 
-    let tripsView = props.trips.length > 0 ? <div>
-    Trip
+    let tripsView = props.trips && props.trips.length > 0 ? <div>
+    <h1 className="text-3xl">Trips</h1>
     {props.trips.map(trip =>
         <li key={trip.id}>
             <Link to={`trips/${trip.id}`}>

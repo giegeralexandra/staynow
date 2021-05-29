@@ -29,15 +29,11 @@ class RentalsContainer extends React.Component {
     //     })
     
     render(){
-        console.log(this.props)
         return(
             <div>
                 <Switch> 
-                    {/* switch chooses first route that matches that path */}
-                    <Route exact path='/rentals/new' component={RentalInput} />
-                    <Route exact path='/rentals/:id' render={(routerProps) => <Rental {...routerProps} rentals={this.props.rentals} />} />
+                    <Route path='/rentals/:id' render={(routerProps) => <Rental {...routerProps} rentals={this.props.rentals} />} />
                     <Route path='/rentals' render={(routerProps) => <Rentals {...routerProps} rentals={this.props.rentals} />} />
-                    
                 </Switch>
             </div>
         )
@@ -49,7 +45,7 @@ const mapStateToProps = state => {
     console.log(state)
     return {
         rentals: state.rentals
-    }
+  }
 }
 
 export default connect(mapStateToProps, {fetchRentals})(RentalsContainer)
