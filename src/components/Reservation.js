@@ -7,8 +7,7 @@ const Reservation = (props) =>{
     
     return (
         <div>
-            Single Reservation
-            {reservation.id}
+             { reservation ? (reservation.checkin) : null }
         </div>
     )
 }

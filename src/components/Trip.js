@@ -7,7 +7,7 @@ const Trip = (props) =>{
     
     return (
         <div>
-            {trip.checkin}
+            {trip ? trip.checkin : null }
         </div>
     )
 }

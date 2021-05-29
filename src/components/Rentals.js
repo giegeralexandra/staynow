@@ -6,17 +6,17 @@ import {connect} from 'react-redux'
 const Rentals = (props) => {
     // debugger
     // const [loading, setLoading] = useState(false)
-
+    // let rentals = props.rentals[0]
     
     // if (!props.rentals[0]){
     //     return <p>Rentals loading</p>
     // }
     // debugger
-    return (
-        console.log(props),
-        <div>
+
+    const rentalViews = props.rentals.length > 0 ?
+         <div>
             Rentals
-            {props.rentals.map((rental) => 
+             {props.rentals.map((rental) => 
             <li key={rental.id}>
                 <Link to={`/rentals/${rental.id}`}>
                     {rental.name}
@@ -25,7 +25,12 @@ const Rentals = (props) => {
             <br>
             </br>
            
-        </div>
+        </div> : null 
+
+    return (
+        console.log(props),
+        rentalViews
+        
     )
 }
 
