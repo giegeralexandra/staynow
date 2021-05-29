@@ -12,6 +12,7 @@ import {combineReducers} from 'redux'
 import loginFormReducer from './reducers/loginFormReducer'
 import rentalReducer from './reducers/rentalReducer'
 import tripsReducer from './reducers/tripReducer'
+import './index.css'
 //compose combines diff middlewares into one 
 //store is where you are storing your data locally
 //reducers sending action object and it takes it in and deciding what to update about our current store and reducer will return a new version 

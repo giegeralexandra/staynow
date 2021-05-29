@@ -15,6 +15,8 @@ import TripsContainer from './containers/TripsContainer'
 import ReservationsContainer from './containers/ReservationsContainer'
 import NavBar from './components/NavBar.js'
 import Home from './components/Home'
+import Signup from './components/Signup'
+import "tailwindcss/tailwind.css"
 
 class App extends React.Component {
   
@@ -33,12 +35,11 @@ class App extends React.Component {
   return (
     
     this.props.currentUser ? (
-      <div className = "App">
+      <div className = "justify-items-center">
       <NavBar />
       <RentalsContainer/>
       <TripsContainer/>
       <ReservationsContainer/>
-      <Logout/>
       </div>
     ) : 
     (

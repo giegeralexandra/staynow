@@ -10,7 +10,7 @@ const Home = () => {
             Sign up
         </Link>
         or 
-        <Link to="/login">
+        <Link to="/login" className="text-red-700">
             Login
         </Link>
     </div>
