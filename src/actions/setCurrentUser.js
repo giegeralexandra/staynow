@@ -3,6 +3,7 @@ import {resetLoginForm} from './updateLoginForm'
 import {fetchReservations} from './fetchReservations'
 import {fetchTrips} from './fetchTrips'
 
+
 export const setCurrentUser =(user) => {
     console.log('inside fetch current users')
     return {
