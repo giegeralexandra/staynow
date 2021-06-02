@@ -4,7 +4,7 @@ import Rental from './Rental'
 const Reservation = (props) =>{
 
     console.log(props)
-    const reservation = props.reservations.find((reservation) => {return reservation.id == props.match.params.id})
+    const reservation = props.reservations.length > 0 ? props.reservations.find((reservation) => {return reservation.id == props.match.params.id}) : null 
     const rental = reservation ? props.rentals[reservation.rental_id-1] : null
     const reservationView = reservation && rental ? 
         <div>

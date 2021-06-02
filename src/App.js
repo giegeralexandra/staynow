@@ -7,7 +7,8 @@ import RentalsContainer from './containers/RentalsContainer'
 import NavBar from './components/NavBar.js'
 import Home from './components/Home'
 import {getCurrentUser} from "./actions/setCurrentUser"
-
+import {Route, Switch} from 'react-router-dom'
+import Rentals from './components/Rentals'
 class App extends React.Component {
   
   componentDidMount() {

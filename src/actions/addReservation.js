@@ -1,8 +1,9 @@
 // import {withRouter} from 'react-router-dom'
 // import {fetchReservations} from './fetchReservations'
 
-export const addReservation = (data, history) => {
+export const addReservation = (data) => {
     console.log('inside add reservation')
+    console.log(data)
     return (dispatch) => {
         fetch('http://localhost:3000/api/v1/reservations', {
             headers: {
@@ -22,6 +23,7 @@ export const addReservation = (data, history) => {
             } else {
                 // history.push(`/reservations/${reservation.id}`)
                 dispatch({type: 'ADD_RESERVATION', payload: reservation})
+                
                 // dispatch(fetchReservations())
             }
         })

@@ -61,4 +61,11 @@ class RentalInput extends React.Component {
     }
 }
 
+mapStateToProps = (state) => {
+    console.log(state)
+    return{
+    reservations: reservations
+    }
+}
+
 export default connect(null, {addRental})(RentalInput)

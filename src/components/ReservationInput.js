@@ -15,7 +15,6 @@ class ReservationInput extends React.Component {
     }
 
     handleChange = (event) => {
-        // console.log(event)
         this.setState({
             [event.target.name]: event.target.value
             //inside of brackets because it is an object and needs to locate a key 
@@ -24,7 +23,6 @@ class ReservationInput extends React.Component {
 
     onSubmit = (event) => {
         console.log(this.props)
-        // debugger
         event.preventDefault();
         let reservation = {...this.state, rental_id: this.props.rental.id,
             guest_id: this.props.rental.id,}
@@ -37,7 +35,7 @@ class ReservationInput extends React.Component {
             guest_id: '', 
             price: ''  
         })
-        this.props.history.push('/booked')
+        this.props.history.push('/reservations')
     }
 
     render(){

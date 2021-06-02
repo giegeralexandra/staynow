@@ -4,6 +4,7 @@ import {Route, Switch, Link} from 'react-router-dom'
 import Rentals from '../components/Rentals'
 import Rental from '../components/Rental'
 import {fetchRentals} from '../actions/fetchRentals'
+import Welcome from '../components/Welcome'
 
 class RentalsContainer extends React.Component {
     
@@ -17,7 +18,7 @@ class RentalsContainer extends React.Component {
                 <Switch> 
                     <Route path='/rentals/:id' render={(routerProps) => <Rental {...routerProps} rentals={this.props.rentals} />} />
                     <Route path='/rentals' render={(routerProps) => <Rentals {...routerProps} rentals={this.props.rentals} />} />
-                    <Route path='/' render={(routerProps) => <Rentals {...routerProps} rentals={this.props.rentals} />}  />
+                    <Route path='*' exact={true} render={Welcome}/>
                 </Switch>
             </div>
         )

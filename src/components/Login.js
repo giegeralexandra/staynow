@@ -39,11 +39,4 @@ const mapStateToProps = state => {
     }
 } 
 
-const mapDispatchToProps = () => {
-    return {
-        updateLoginForm: updateLoginForm,
-        userLogin: userLogin
-    }
-  }
-
 export default connect(mapStateToProps, {userLogin, updateLoginForm})(Login)

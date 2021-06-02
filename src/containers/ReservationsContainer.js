@@ -5,6 +5,7 @@ import {fetchReservations} from '../actions/fetchReservations'
 import UserReservations from '../components/UserReservations'
 import Reservation from '../components/Reservation'
 import Booked from '../components/Booked'
+import {addReservation} from '../actions/addReservation'
 
 class ReservationsContainer extends React.Component {
  
@@ -33,5 +34,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {fetchReservations})(ReservationsContainer)
+export default connect(mapStateToProps, {fetchReservations, addReservation})(ReservationsContainer)
 
