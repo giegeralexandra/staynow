@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Route, Switch, Link} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import Rentals from '../components/Rentals'
 import Rental from '../components/Rental'
 import {fetchRentals} from '../actions/fetchRentals'

@@ -4,7 +4,6 @@ import {Route, Switch} from 'react-router-dom'
 import {fetchReservations} from '../actions/fetchReservations'
 import UserReservations from '../components/UserReservations'
 import Reservation from '../components/Reservation'
-import Booked from '../components/Booked'
 import {addReservation} from '../actions/addReservation'
 
 class ReservationsContainer extends React.Component {
@@ -20,7 +19,6 @@ class ReservationsContainer extends React.Component {
             <Switch> 
                 <Route exact path='/reservations/:id' render={(routerProps) => <Reservation {...routerProps} reservations={this.props.reservations} rentals={this.props.rentals} />} />
                 <Route exact path='/reservations' render={(routerProps) => <UserReservations {...routerProps} reservations={this.props.reservations} />} />
-                <Route path='/booked' render={(routerProps) => <Booked {...routerProps} reservations={this.props.reservations} />} />
             </Switch>
             </div>
         )

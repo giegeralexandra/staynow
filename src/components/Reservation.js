@@ -8,7 +8,7 @@ const Reservation = (props) => {
         }) : null 
 
     const rental = reservation ? 
-        props.rentals[reservation.rental_id-1] : null
+        reservation.rental : null
 
     const reservationView = reservation && rental ? 
         <div>
@@ -17,7 +17,7 @@ const Reservation = (props) => {
             <p>Checkout: {reservation.checkout}</p> 
             <p>Total: ${reservation.total_price}</p>
         </div> : null
-    
+
     return (
         reservationView
     )

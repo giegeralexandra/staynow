@@ -16,8 +16,11 @@ const Rentals = (props) => {
             <br></br>
         </div> : null 
 
+    console.log(props)
     return (
-        rentalViews
+        <div>
+        {rentalViews}
+        </div>
     )
 }
 
