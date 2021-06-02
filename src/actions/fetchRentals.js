@@ -11,7 +11,3 @@ export function fetchRentals() {
         }))
     }
 }
-
-//this is our action creator which creates an action object 
-//this will be dispatched to our reducer
-//thunk allows us to connect automatically calling dispacth, it allows us to call dispatch inside of action creator allowing fetch request to finish before dispatching anything to reducer

@@ -15,7 +15,6 @@ class RentalInput extends React.Component {
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
-            //inside of brackets because it is an object and needs to locate a key 
         })
     }
 

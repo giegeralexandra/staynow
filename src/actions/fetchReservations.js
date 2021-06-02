@@ -7,7 +7,6 @@ export const setReservations = reservations => {
 
 export function fetchReservations() {
     return (dispatch) => {
-        console.log('inside fetch reservations')
         fetch('http://localhost:3000/api/v1/reservations', {
             credentials: 'include'
         })
