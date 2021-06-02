@@ -1,6 +1,3 @@
-// import {withRouter} from 'react-router-dom'
-// import {fetchReservations} from './fetchReservations'
-
 export const addReservation = (data) => {
     console.log('inside add reservation')
     console.log(data)
@@ -17,14 +14,9 @@ export const addReservation = (data) => {
         .then(res => res.json())
         .then(reservation => {
             if (reservation.error) {
-                console.log(reservation.error)
-                console.log(reservation)
                 alert(reservation.error)
             } else {
-                // history.push(`/reservations/${reservation.id}`)
                 dispatch({type: 'ADD_RESERVATION', payload: reservation})
-                
-                // dispatch(fetchReservations())
             }
         })
         .catch(console.log)

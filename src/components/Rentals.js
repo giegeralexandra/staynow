@@ -1,17 +1,8 @@
 import React from 'react'
-import {Route, Link} from 'react-router-dom'
-import Rental from './Rental'
-import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 const Rentals = (props) => {
-    // debugger
-    // const [loading, setLoading] = useState(false)
-    // let rentals = props.rentals[0]
-    
-    // if (!props.rentals[0]){
-    //     return <p>Rentals loading</p>
-    // }
-    // debugger
+
 
     const rentalViews = props.rentals.length > 0 ?
          <div>
@@ -22,16 +13,12 @@ const Rentals = (props) => {
                     {rental.name}
                 </Link>
             </li>)}
-            <br>
-            </br>
-           
+            <br></br>
         </div> : null 
 
     return (
-        console.log(props),
         rentalViews
-        
     )
 }
 
-export default (Rentals)
+export default Rentals

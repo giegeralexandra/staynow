@@ -7,7 +7,6 @@ export const setTrips = trips => {
 
 export function fetchTrips() {
     return (dispatch) => {
-        console.log('inside fetch trips')
         fetch('http://localhost:3000/api/v1/trips', {
             credentials: 'include'
         })

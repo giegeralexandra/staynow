@@ -17,10 +17,6 @@ const Signup = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         props.signup(props.formData)
-        this.props.setState({
-            email: "", 
-            password: ""
-        })
     }
 
     return (

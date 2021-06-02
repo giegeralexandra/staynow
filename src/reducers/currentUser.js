@@ -8,5 +8,4 @@ export default function currentUserReducer(state = null, action) {
         default:
             return state
     }
-    // debugger
 }

@@ -1,10 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {addReservation} from '../actions/addReservation'
-import {Route, Link, Redirect, withRouter} from 'react-router-dom'
-import {compose} from 'redux'
-import { fetchReservations } from '../actions/fetchReservations'
-import Booked from './Booked'
+import {withRouter} from 'react-router-dom'
 
 class ReservationInput extends React.Component {
     
@@ -17,12 +14,10 @@ class ReservationInput extends React.Component {
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
-            //inside of brackets because it is an object and needs to locate a key 
         })
     }
 
     onSubmit = (event) => {
-        console.log(this.props)
         event.preventDefault();
         let reservation = {...this.state, rental_id: this.props.rental.id,
             guest_id: this.props.rental.id,}
@@ -39,7 +34,6 @@ class ReservationInput extends React.Component {
     }
 
     render(){
-        console.log(this.props)
         return (
             <div>
                 <form onSubmit={this.onSubmit}>
@@ -58,7 +52,6 @@ class ReservationInput extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return{
         currentUser: state.currentUser,
         reservations: state.reservations
