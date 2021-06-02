@@ -1,22 +1,18 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Route, Switch} from 'react-router-dom'
 import {fetchTrips} from '../actions/fetchTrips'
-import tripReducer from '../reducers/tripReducer'
 import Trips from '../components/Trips'
 import Trip from '../components/Trip'
-import {Route, Switch, Link} from 'react-router-dom'
 
 
 class TripsContainer extends React.Component {
- //why should it be component? because it has functions and component did mount
  
     componentDidMount() {
         this.props.fetchTrips()
     }
     
-
     render(){
-        console.log(this.props)
         return(
             <div>
                 <Switch>
@@ -29,7 +25,6 @@ class TripsContainer extends React.Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state)
     return {
         trips: state.trips
     }

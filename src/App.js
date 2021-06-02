@@ -7,8 +7,6 @@ import RentalsContainer from './containers/RentalsContainer'
 import NavBar from './components/NavBar.js'
 import Home from './components/Home'
 import {getCurrentUser} from "./actions/setCurrentUser"
-import {fetchRentals} from './actions/fetchRentals'
-
 
 class App extends React.Component {
   
