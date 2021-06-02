@@ -1,17 +1,17 @@
-// import { render } from '@testing-library/react'
 import React from 'react'
-// import {Link} from 'react-router-dom'
+import {Route, Link} from 'react-router-dom'
 import Login from './Login'
 import Signup from './Signup'
 const Home = () => {
     
     return(
-    <div>
-        Welcome to StayNow! Please Login
-        <Login /><br/> 
-        <p><Signup/></p> 
-    </div>
-    
+        <div>
+            Welcome to StayNow! Please 
+            <Link to="/login" className="underline"> Login </Link>or
+            <Link to="/signup" className="underline"> Signup </Link>
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/signup' component={Signup} />
+        </div>
     )
 }
 
